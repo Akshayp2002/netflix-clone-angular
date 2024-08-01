@@ -1,4 +1,4 @@
-import { Component, Input, input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -9,15 +9,19 @@ import { Component, Input, input } from '@angular/core';
 })
 export class HeaderComponent {
   @Input({ required: true })
+  userName: string = '';
+
   @Input({ required: true })
-  
   userImg: string = '';
+
   defaultImg = 'https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png';
 
-  
+
   navList = ["home", "Tv Show", "News & Popular", "My List", "Browse by Language"];
+
   onImageError(event: Event) {
-    const imgElement = event.target as HTMLImageElement;
-    imgElement.src = this.defaultImg;
+    const imgElement     = event.target as HTMLImageElement;
+          imgElement.src = this.defaultImg;
   }
+
 }

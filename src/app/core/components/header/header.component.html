@@ -10,7 +10,7 @@
     </div>
     <div class="text-white flex items-center gap-4">
         <div class="flex items-center gap-2">
-            <a href="/"><span>Welcome <strong>Akshay</strong></span></a>
+            <div><span>Welcome <strong>{{userName}}</strong></span></div>
             <img width="42" [src]="userImg" alt="profile" (error)="onImageError($event)">
         </div>
 
