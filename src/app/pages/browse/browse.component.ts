@@ -18,12 +18,19 @@ export class BrowseComponent implements OnInit {
   movieService = inject(MovieService)
 
   popularMovies: IVideoContent[] = [];
+  popularTv: IVideoContent[] = [];
 
   ngOnInit(): void {
     this.movieService.getMovies().subscribe(res => {
       console.log(res, "Boooom");
       this.popularMovies = res.results;
-      console.log(this.popularMovies,"seconf kkkki");
+      console.log(this.popularMovies,"First Api");
+    });
+
+    this.movieService.getTv().subscribe(res => {
+      console.log(res, "TV Boom");
+      this.popularTv = res.results;
+      console.log(this.popularTv, "Second Api");
     });
   }
 

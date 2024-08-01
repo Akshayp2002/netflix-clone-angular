@@ -15,7 +15,9 @@ import Swiper from 'swiper';
 export class MovieCarouselComponent implements AfterViewInit {
 
   @Input() viewContents: IVideoContent[] = [];
-  @Input() title!: string;
+  @Input() viewContentsTv: IVideoContent[] = [];
+  @Input() titlePopular!: string;
+  @Input() titleTv!: string;
 
   @ViewChild('swiperContainer') swiperContainer!: ElementRef;
 

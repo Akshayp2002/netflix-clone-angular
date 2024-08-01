@@ -4,6 +4,7 @@ export interface IVideoContent {
     genre_ids: number[]
     id: number
     original_language: string
+    original_name: string
     original_title: string
     overview: string
     popularity: number

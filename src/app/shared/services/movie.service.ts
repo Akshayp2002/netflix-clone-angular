@@ -20,8 +20,13 @@ const options = {
 export class MovieService {
   http = inject(HttpClient);
   url = 'https://api.themoviedb.org/3/discover/movie';
+  urlTv = 'https://api.themoviedb.org/3/discover/tv';
 
   getMovies() {
     return this.http.get<any>(this.url, options);
+  }
+
+  getTv() {
+    return this.http.get<any>(this.urlTv, options);
   }
 }
