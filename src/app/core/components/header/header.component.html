@@ -1,0 +1,19 @@
+<header class="h-[68px] z-10 bg-main bg-gray-900 sticky top-0 flex items-center justify-between px-10">
+    <div class="flex">
+        <img class="w-24" src="assets/netflixlogo.png" alt="netflix-logo">
+
+        <ul class="flex items-center gap-5">
+            @for (item of navList; track $index) {
+            <li class="text-white cursor-pointer text-sm font-extralight">{{item}}</li>
+            }
+        </ul>
+    </div>
+    <div class="text-white flex items-center gap-4">
+        <div class="flex items-center gap-2">
+            <a href="/"><span>Welcome <strong>Akshay</strong></span></a>
+            <img width="42" [src]="userImg" alt="profile" (error)="onImageError($event)">
+        </div>
+
+        <a href="">Sign out</a>
+    </div>
+</header>
