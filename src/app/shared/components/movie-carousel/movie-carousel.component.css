@@ -1,0 +1,15 @@
+/* movie-carousel.component.css */
+.swiper-container {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-wrapper {
+    display: flex;
+}
+
+.swiper-slide {
+    flex-shrink: 0;
+    width: auto;
+    /* or a specific width if you prefer */
+}
