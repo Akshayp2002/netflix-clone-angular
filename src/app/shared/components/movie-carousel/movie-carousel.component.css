@@ -1,5 +1,6 @@
 /* movie-carousel.component.css */
 .swiper-container {
+    overflow: hidden;
     width: 100%;
     height: 100%;
 }
@@ -9,6 +10,8 @@
 }
 
 .swiper-slide {
+    box-sizing: border-box;
+        /* Ensure padding/margin doesn't affect width */
     flex-shrink: 0;
     width: auto;
     /* or a specific width if you prefer */
