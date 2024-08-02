@@ -18,15 +18,41 @@ const options = {
   providedIn: 'root'
 })
 export class MovieService {
+  getbannerDetail(id: any): import("rxjs").Observable<any> {
+    throw new Error('Method not implemented.');
+  }
+  getbannerDetails(id: any) {
+    throw new Error('Method not implemented.');
+  }
   http = inject(HttpClient);
-  url = 'https://api.themoviedb.org/3/discover/movie';
-  urlTv = 'https://api.themoviedb.org/3/discover/tv';
 
   getMovies() {
-    return this.http.get<any>(this.url, options);
+    return this.http.get<any>('https://api.themoviedb.org/3/discover/movie', options);
   }
 
   getTv() {
-    return this.http.get<any>(this.urlTv, options);
+    return this.http.get<any>('https://api.themoviedb.org/3/discover/tv', options);
+  }
+  getPopular() {
+    return this.http.get<any>('https://api.themoviedb.org/3/movie/popular', options);
+  }
+
+  getTopRated() {
+    return this.http.get<any>('https://api.themoviedb.org/3/movie/top_rated', options);
+  }
+
+  getUpcoming() {
+    return this.http.get<any>('https://api.themoviedb.org/3/movie/upcoming', options);
+  }
+  getBannerImage(id: number) {
+    return this.http.get(`https://api.themoviedb.org/3/movie/${id}/images`, options)
+  }
+
+  getBannerVideo(id: number) {
+    return this.http.get(`https://api.themoviedb.org/3/movie/${id}/videos`, options);
+  }
+
+  getBannerDetail(id: number) {
+    return this.http.get(`https://api.themoviedb.org/3/movie/${id}`, options);
   }
 }

@@ -5,48 +5,70 @@ import { AuthService } from '../../shared/services/auth.service';
 import { HeaderComponent } from '../../core/components/header/header.component';
 import { BannerComponent } from '../../core/components/banner/banner.component';
 import { MovieCarouselComponent } from "../../shared/components/movie-carousel/movie-carousel.component";
+import { forkJoin, map, Observable } from 'rxjs';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-browse',
   standalone: true,
-  imports: [HeaderComponent, BannerComponent, MovieCarouselComponent],
+  imports: [CommonModule, HeaderComponent, BannerComponent, MovieCarouselComponent],
   templateUrl: './browse.component.html',
   styleUrl: './browse.component.css'
 })
 export class BrowseComponent implements OnInit {
 
   movieService = inject(MovieService)
+  auth = inject(AuthService);
 
-  popularMovies: IVideoContent[] = [];
-  popularTv: IVideoContent[] = [];
+  movies: IVideoContent[] = [];
+  tvShows: IVideoContent[] = [];
+  popular: IVideoContent[] = [];
+  upcoming: IVideoContent[] = [];
+  toprated: IVideoContent[] = [];
+
+  sources = [
+    this.movieService.getMovies(),
+    this.movieService.getTv(),
+    this.movieService.getPopular(),
+    this.movieService.getUpcoming(),
+    this.movieService.getTopRated(),
+  ]
+
+  bannerDetail$ = new Observable<any>();
+  bannerVideo$ = new Observable<any>();
 
   ngOnInit(): void {
-    this.movieService.getMovies().subscribe(res => {
-      console.log(res, "Boooom");
-      this.popularMovies = res.results;
-      console.log(this.popularMovies,"First Api");
-    });
-
-    this.movieService.getTv().subscribe(res => {
-      console.log(res, "TV Boom");
-      this.popularTv = res.results;
-      console.log(this.popularTv, "Second Api");
-    });
+    forkJoin(this.sources)
+      .pipe(map(([movies, tvShows, popular, upcoming, toprated]) => {
+        console.log(toprated, "top tated");
+        this.bannerDetail$ = this.movieService.getBannerDetail(movies.results[1].id);
+        this.bannerVideo$ = this.movieService.getBannerVideo(movies.results[1].id);
+        return { movies, tvShows, popular, upcoming, toprated };
+      })
+      ).subscribe((res: any) => {
+        this.movies = res.movies.results as IVideoContent[],
+          this.tvShows = res.tvShows.results as IVideoContent[],
+          this.popular = res.popular.results as IVideoContent[],
+          this.upcoming = res.upcoming.results as IVideoContent[],
+          this.toprated = res.toprated.results as IVideoContent[]
+      })
   }
-
-  auth = inject(AuthService);
 
   name = JSON.parse(sessionStorage.getItem("loggenInUser")!).name;
   userProfileImg = JSON.parse(sessionStorage.getItem("loggenInUser")!).picture;
   email = JSON.parse(sessionStorage.getItem("loggenInUser")!).email;
-
-
 
   defaultImg = 'https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png';
 
   onImageError(event: Event) {
     const imgElement = event.target as HTMLImageElement;
     imgElement.src = this.defaultImg;
+  }
+  getMovieKey() {
+    this.movieService.getBannerVideo(this.movies[0].id)
+      .subscribe(res => {
+        console.log(res);
+      })
   }
 
   signOut() {

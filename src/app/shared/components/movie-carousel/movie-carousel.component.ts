@@ -15,15 +15,14 @@ import Swiper from 'swiper';
 export class MovieCarouselComponent implements AfterViewInit {
 
   @Input() viewContents: IVideoContent[] = [];
-  @Input() viewContentsTv: IVideoContent[] = [];
-  @Input() titlePopular!: string;
-  @Input() titleTv!: string;
+  @Input() title: string | undefined;
   @ViewChild('swiperContainer1') swiperContainer1!: ElementRef;
-  @ViewChild('swiperContainer2') swiperContainer2!: ElementRef;
 
   // Common Swiper configuration
   private swiperConfig = {
     speed: 500,
+    slidesPerView: 1,
+    spaceBetween: 10,
     breakpoints: {
       320: { slidesPerView: 3 },
       480: { slidesPerView: 3 },
@@ -35,7 +34,6 @@ export class MovieCarouselComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     this.initializeSwiper(this.swiperContainer1.nativeElement);
-    this.initializeSwiper(this.swiperContainer2.nativeElement);
   }
 
   private initializeSwiper(container: HTMLElement) {

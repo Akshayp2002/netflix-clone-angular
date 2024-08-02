@@ -1,19 +1,13 @@
 <div class="relative h-[560px] md:h-[750px] overflow-hidden">
-    <iframe class="w-full h-[500px] md:h-full absolute top-0 left-0 transform scale-125 object-cover overflow-hidden"
-        src="https://www.youtube.com/embed/Idh8n5XuYIA?autoplay=1&mute=1&loop=1&controls=0" frameborder="0"
-        allow="autoplay; encrypted-media">
+    <iframe class="w-full h-[300px] md:h-[560px] lg:h-full absolute top-0 left-0 transform scale-125 object-cover overflow-hidden"
+        [src]="videoUrl" frameborder="0" allow="autoplay; encrypted-media">
     </iframe>
 
     <div class="h-screen bg-black">
         <div
-            class="absolute inset-0 flex flex-col justify-center p-8 md:p-24 bg-gradient-to-r from-black via-black/70 to-black text-white">
-            <h1 class="text-4xl md:text-6xl font-bold">Deadpool & Wolverine</h1>
-            <p class="mt-4 text-base md:text-lg leading-relaxed w-full md:w-1/2">
-                A listless Wade Wilson toils away in civilian life with his days as the morally flexible mercenary,
-                Deadpool, behind him. But when his homeworld faces an existential threat, Wade must reluctantly suit-up again with
-                an
-                even more reluctant Wolverine.
-            </p>
+            class="absolute inset-0 flex flex-col justify-center p-8 md:p-24 bg-gradient-to-r from-black via-black/50 to-black/30 text-white">
+            <h1 class="text-xl md:text-6xl font-bold">{{bannerTitle}}</h1>
+            <p class="mt-4 text-base md:text-lg leading-relaxed w-full md:w-1/2">{{bannerOverview}}</p>
             <div class="mt-6 flex flex-col sm:flex-row gap-4">
                 <button
                     class="bg-white text-black py-3 px-6 text-base md:text-xl rounded-lg hover:bg-opacity-70 transition duration-300 w-full sm:w-auto">

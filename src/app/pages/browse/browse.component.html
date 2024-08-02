@@ -1,5 +1,10 @@
-<app-header [userImg]="userProfileImg" [userName]="name"/>
+<app-header [userImg]="userProfileImg" [userName]="name" />
 <!-- component -->
-<app-banner/>
+<app-banner [bannerTitle]="(bannerDetail$ | async)?.original_title" [bannerOverview]="(bannerDetail$ | async)?.overview"
+    [key]="(bannerVideo$ | async)?.results[0].key" />
 
-<app-movie-carousel [viewContents]="popularMovies"  [viewContentsTv]="popularTv" [titlePopular]="'Popular Movies'" [titleTv]="'Popular Tv Show'"/>
+<app-movie-carousel [viewContents]="movies" [title]="'Popular Movies :'" />
+<app-movie-carousel [viewContents]="tvShows" [title]="'Popular Tv Show :'" />
+<app-movie-carousel [viewContents]="popular" [title]="'Popular :'" />
+<app-movie-carousel [viewContents]="upcoming" [title]="'Up Coming :'" />
+<app-movie-carousel [viewContents]="toprated" [title]="'Top Rated :'" />
