@@ -16,9 +16,9 @@ export class LoginComponent implements OnInit {
       // localhost
       // client_id: '447498725600-802d3k8toijn1saqsq31hkc63804pt54.apps.googleusercontent.com',
       // Server netlify
-      // client_id: '447498725600-fkrfbr74pd77s4ed6d8malohid255ug0.apps.googleusercontent.com',
+      client_id: '447498725600-fkrfbr74pd77s4ed6d8malohid255ug0.apps.googleusercontent.com',
       // Server versel
-      client_id: '447498725600-li4golsjtnakt9suvbigv116g0emuh0a.apps.googleusercontent.com',
+      // client_id: '447498725600-li4golsjtnakt9suvbigv116g0emuh0a.apps.googleusercontent.com',
       callback: (resp: any) => this.handleLogin(resp)
     });
     google.accounts.id.renderButton(document.getElementById("google-btn"), {
@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
       shape: 'rectangle',
       width: 350,
     })
+
   }
 
   private decodeToken(token: string) {
