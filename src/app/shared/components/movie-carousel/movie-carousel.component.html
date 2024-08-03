@@ -1,6 +1,6 @@
 <div class="w-full text-white bg-black px-5 pb-16 relative">
     <div>
-        <h1 class="text-4xl p-4 font-bold">{{ title }}</h1>
+        <h1 class="text-3xl p-4 font-bold">{{ title }}</h1>
         <div #swiperContainer1 class="swiper-container">
             <div class="swiper-wrapper">
                 <ng-container *ngFor="let movie of viewContents">
@@ -12,10 +12,10 @@
                             <!-- Overlay with text (hidden by default) -->
                             <div
                                 class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-50 p-4 flex items-end transition duration-300 opacity-0 hover:opacity-100">
-                                <div class="text-left">
+                                <div class="text-left p-3">
                                     <h1 class="text-sm md:text-xl font-bold font-sans">{{ movie.original_title ||
                                         movie.original_name }}</h1>
-                                    <h1 class="text-xs mdtext-sm">Rating: {{ movie.vote_average }}</h1>
+                                    <h1 class="text-xs mdtext-sm text-green-600 font-extrabold">Rating: {{ movie.vote_average }}</h1>
                                 </div>
                             </div>
                         </div>
@@ -24,5 +24,4 @@
             </div>
         </div>
     </div>
-
 </div>

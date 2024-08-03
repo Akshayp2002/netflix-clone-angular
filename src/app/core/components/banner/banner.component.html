@@ -8,10 +8,14 @@
         <div
             class="absolute inset-0 flex flex-col justify-center p-8 md:p-24 bg-gradient-to-r from-black via-black/50 to-black/30 text-white">
             <h1 class="text-xl md:text-6xl font-bold">{{bannerTitle}}</h1>
+            <div class="flex gap-3 m-3">
+                <p class="text-green-600 font-bold">New</p>
+                <p class="text-white font-bold">{{ releaseDate }}</p>
+                <p class="border border-white text-white px-2 py-[0px]">{{language}}</p>
+                <p class="text-green-500">{{vote}}</p>
+            </div>
             <p class="mt-4 text-base md:text-lg leading-relaxed w-full md:w-1/2">{{bannerOverview}}</p>
             <div class="mt-6 flex flex-col sm:flex-row gap-4">
-                <!-- Uploaded to: SVG Repo, www.svgrepo.com, Transformed by: SVG Repo Mixer Tools -->
-
                 <button
                     class="flex items-center gap-2 bg-white text-black py-3 px-12 text-base md:text-xl rounded-lg hover:bg-opacity-70 transition duration-300 w-full sm:w-auto">
                     <svg width="18px" height="18px" viewBox="-0.5 0 7 7" version="1.1"

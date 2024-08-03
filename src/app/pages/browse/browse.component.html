@@ -1,10 +1,15 @@
 <app-header [userImg]="userProfileImg" [userName]="name" />
 <!-- component -->
 <app-banner [bannerTitle]="(bannerDetail$ | async)?.original_title" [bannerOverview]="(bannerDetail$ | async)?.overview"
-    [key]="(bannerVideo$ | async)?.results[0].key" />
+    [language]="(bannerDetail$ | async)?.original_language" [vote]="(bannerDetail$ | async)?.vote_average"
+    [releaseDate]="(bannerDetail$ | async)?.release_date" [key]="(bannerVideo$ | async)?.results[0].key" />
 
-<app-movie-carousel [viewContents]="movies" [title]="'Popular Movies :'" />
-<app-movie-carousel [viewContents]="tvShows" [title]="'Popular Tv Show :'" />
-<app-movie-carousel [viewContents]="popular" [title]="'Popular :'" />
-<app-movie-carousel [viewContents]="upcoming" [title]="'Up Coming :'" />
-<app-movie-carousel [viewContents]="toprated" [title]="'Top Rated :'" />
+<app-movie-carousel [viewContents]="trending" [title]="'Trending Now'" />
+<app-movie-carousel [viewContents]="movies" [title]="'Now Playing'" />
+<app-movie-carousel [viewContents]="tvShows" [title]="'Popular Tv Show '" />
+<app-movie-carousel [viewContents]="upcoming" [title]="'Up Coming '" />
+<!-- large slider -->
+<app-preview-banner [viewContents]="trending" [title]="'Recommended'" />
+
+<app-movie-carousel [viewContents]="popular" [title]="'Popular '" />
+<app-movie-carousel [viewContents]="toprated" [title]="'Top Rated '" />

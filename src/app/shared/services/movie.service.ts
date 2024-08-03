@@ -26,8 +26,12 @@ export class MovieService {
   }
   http = inject(HttpClient);
 
-  getMovies() {
+  getTrending() {
     return this.http.get<any>('https://api.themoviedb.org/3/discover/movie', options);
+  }
+
+  getMovies() {
+    return this.http.get<any>('https://api.themoviedb.org/3/trending/all/day', options);
   }
 
   getTv() {

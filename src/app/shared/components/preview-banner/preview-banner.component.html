@@ -1,0 +1,33 @@
+<div class="w-full text-white bg-black px-5 pb-16 relative">
+    <div>
+        <h1 class="text-3xl p-4 font-bold">{{ title }}</h1>
+        <div #swiperContainer1 class="swiper-container">
+            <div class="swiper-wrapper">
+                <ng-container *ngFor="let movie of viewContents">
+                    <div class="swiper-slide">
+                        <div class="relative transform transition duration-500 hover:scale-100 px-5 rounded-lg">
+                            <!-- Image -->
+                            <img class="w-full h-[350px] rounded-lg object-cover" [src]="movie.backdrop_path | image"
+                                alt="">
+                            <!-- Overlay with text and buttons -->
+                            <div
+                                class="absolute inset-0 bg-black bg-opacity-50 p-4 flex flex-col justify-end transition-opacity duration-300 opacity-100">
+                                <div class="text-left  p-5">
+                                    <h1 class="text-base md:text-2xl lg:text-4xl font-bold font-sans">{{
+                                        movie.original_title || movie.original_name }}</h1>
+                                        <div class="flex gap-2 pt-3">
+                                            <h1 class="text-xs mdtext-sm text-green-600 font-extrabold">Vote: {{ movie.vote_average }}</h1>
+                                            <h1 class="text-xs mdtext-sm font-extrabold">{{ movie.original_language }}</h1>
+                                            <h1 class="text-xs mdtext-sm  font-extrabold">Rating: {{ movie.popularity }}</h1>
+                                        </div>
+                                    <h1 class="text-xs mdtext-sm text-white">Rating: {{ movie.overview }}</h1>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>
