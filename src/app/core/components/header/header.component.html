@@ -1,31 +1,35 @@
-<header class="h-[68px] z-10 bg-main bg-gray-900 sticky top-0 flex items-center justify-between px-10">
-    <div class="flex">
-        <img class="w-24 hidden md:block" src="assets/netflixlogo.png" alt="netflix-logo">
-        <img class="w-12 md:hidden" src="assets/Netflix_Symbol_PMS.png" alt="netflix-logo">
-        <div class="hidden md:block items-center content-center">
-            <ul class="flex items-center gap-5">
-                @for (item of navList; track $index) {
-                <li class="text-white cursor-pointer text-sm font-light">{{item}}</li>
-                }
-            </ul>
+<header class="h-[68px] z-10 bg-main sticky top-0 flex items-center justify-between">
+    <div class="navbar bg-base-100 px-10">
+        <div class="flex-1">
+            <img class="w-24 hidden md:block" src="assets/netflixlogo.png" alt="netflix-logo">
+            <img class="w-12 md:hidden" src="assets/Netflix_Symbol_PMS.png" alt="netflix-logo">
+            <div class="hidden md:block items-center content-center px-10">
+                <ul class="flex items-center gap-5">
+                    @for (item of navList; track $index) {
+                    <li class="text-white cursor-pointer text-sm font-light">{{item}}</li>
+                    }
+                </ul>
+            </div>
         </div>
+        <div class="flex-none">
+            <div class="dropdown dropdown-end">
+                <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+                    <div class="w-10 rounded-full ring-1">
+                        <img alt="TProfile" [src]="userImg" (error)="onImageError($event)" />
+                    </div>
+                </div>
+                <ul tabindex="0"
+                    class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                    <li>
+                        <a class="justify-between">
+                            Profile
 
-    </div>
-    <div class="text-white flex items-center gap-4">
-        <div class="flex items-center gap-2">
-            <div class="hidden md:block"><span>Welcome <strong>{{userName}}</strong></span></div>
-            <img width="42" [src]="userImg" alt="profile" (error)="onImageError($event)">
+                        </a>
+                    </li>
+                    <li><a>Settings<span class="badge">New</span></a></li>
+                    <li class="hover:bg-red-600 text-white rounded-box"><a (click)="signOut()">Logout</a></li>
+                </ul>
+            </div>
         </div>
-        <a href="" (click)="signOut()">
-            <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g id="SVGRepo_bgCarrier" stroke-width="0" />
-                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
-                <g id="SVGRepo_iconCarrier">
-                    <path fill-rule="evenodd" clip-rule="evenodd"
-                        d="M21.593 10.943c.584.585.584 1.53 0 2.116L18.71 15.95c-.39.39-1.03.39-1.42 0a.996.996 0 0 1 0-1.41 9.552 9.552 0 0 1 1.689-1.345l.387-.242-.207-.206a10 10 0 0 1-2.24.254H8.998a1 1 0 1 1 0-2h7.921a10 10 0 0 1 2.24.254l.207-.206-.386-.241a9.562 9.562 0 0 1-1.69-1.348.996.996 0 0 1 0-1.41c.39-.39 1.03-.39 1.42 0l2.883 2.893zM14 16a1 1 0 0 0-1 1v1.5a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v1.505a1 1 0 1 0 2 0V5.5A2.5 2.5 0 0 0 12.5 3h-7A2.5 2.5 0 0 0 3 5.5v13A2.5 2.5 0 0 0 5.5 21h7a2.5 2.5 0 0 0 2.5-2.5V17a1 1 0 0 0-1-1z"
-                        fill="#ffffff" />
-                </g>
-            </svg>
-        </a>
     </div>
 </header>

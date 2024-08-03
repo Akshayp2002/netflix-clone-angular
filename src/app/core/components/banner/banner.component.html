@@ -1,5 +1,6 @@
 <div class="relative h-[560px] md:h-[750px] overflow-hidden">
-    <iframe class="w-full h-[300px] md:h-[560px] lg:h-full absolute top-0 left-0 transform scale-125 object-cover overflow-hidden"
+    <iframe
+        class="w-full h-[300px] md:h-[560px] lg:h-full absolute top-0 left-0 transform scale-125 object-cover overflow-hidden"
         [src]="videoUrl" frameborder="0" allow="autoplay; encrypted-media">
     </iframe>
 
@@ -9,12 +10,34 @@
             <h1 class="text-xl md:text-6xl font-bold">{{bannerTitle}}</h1>
             <p class="mt-4 text-base md:text-lg leading-relaxed w-full md:w-1/2">{{bannerOverview}}</p>
             <div class="mt-6 flex flex-col sm:flex-row gap-4">
+                <!-- Uploaded to: SVG Repo, www.svgrepo.com, Transformed by: SVG Repo Mixer Tools -->
+
                 <button
-                    class="bg-white text-black py-3 px-6 text-base md:text-xl rounded-lg hover:bg-opacity-70 transition duration-300 w-full sm:w-auto">
+                    class="flex items-center gap-2 bg-white text-black py-3 px-12 text-base md:text-xl rounded-lg hover:bg-opacity-70 transition duration-300 w-full sm:w-auto">
+                    <svg width="18px" height="18px" viewBox="-0.5 0 7 7" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0" />
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+                        <g id="SVGRepo_iconCarrier">
+                            <title></title>
+                            <desc></desc>
+                            <defs> </defs>
+                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g id="Dribbble-Light-Preview" transform="translate(-347.000000, -3766.000000)"
+                                    fill="#000000">
+                                    <g id="icons" transform="translate(56.000000, 160.000000)">
+                                        <path
+                                            d="M296.494737,3608.57322 L292.500752,3606.14219 C291.83208,3605.73542 291,3606.25002 291,3607.06891 L291,3611.93095 C291,3612.7509 291.83208,3613.26444 292.500752,3612.85767 L296.494737,3610.42771 C297.168421,3610.01774 297.168421,3608.98319 296.494737,3608.57322"
+                                            id="play-[#1003]"> </path>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
                     Play
                 </button>
                 <button
-                    class="bg-gray-500 text-white py-3 px-6 text-base md:text-xl rounded-lg bg-opacity-50 hover:bg-opacity-70 transition duration-300 w-full sm:w-auto">
+                    class="bg-gray-500 text-white py-3 px-12 text-base md:text-xl rounded-lg bg-opacity-50 hover:bg-opacity-70 transition duration-300 w-full sm:w-auto">
                     More info
                 </button>
             </div>
