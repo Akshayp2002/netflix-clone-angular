@@ -5,7 +5,7 @@ import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/rou
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [RouterOutlet,RouterLink, RouterLinkActive],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
       const payLoad = this.decodeToken(response.credential);
       sessionStorage.setItem("loggenInUser", JSON.stringify(payLoad));
       this.router.navigate(['browse']);
-    }else{
+    } else {
       alert("Somthing went wrong!");
     }
   }
