@@ -3,11 +3,12 @@ import { IVideoContent } from '../../model/vide-content.interface';
 import { NgFor } from '@angular/common';
 import { ImagePipe } from '../../pipes/image.pipe';
 import Swiper from 'swiper';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-movie-carousel',
   standalone: true,
-  imports: [NgFor, ImagePipe],
+  imports: [NgFor, ImagePipe,RouterLink, RouterLink],
   templateUrl: './movie-carousel.component.html',
   styleUrls: ['./movie-carousel.component.css'],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
@@ -22,10 +23,9 @@ export class MovieCarouselComponent implements AfterViewInit {
   private swiperConfig = {
     speed: 500,
     slidesPerView: 1,
-    spaceBetween: 10,
     breakpoints: {
-      320: { slidesPerView: 3 },
-      480: { slidesPerView: 3 },
+      320: { slidesPerView: 2 },
+      480: { slidesPerView: 2 },
       640: { slidesPerView: 5 },
       768: { slidesPerView: 6 },
       1024: { slidesPerView: 8 },

@@ -6,6 +6,10 @@
 <!-- Navbar Section -->
 <div class="h-[68px] z-10 bg-transparent sticky top-0 flex items-center justify-between px-10 ">
     <img class="w-44" src="assets/netflixlogo.png" alt="netflix-logo">
+    <button type="submit"
+        class="bg-[#e50914] hover:from-blue-700 hover:to-purple-700 text-white font-bold py-2 px-3 rounded focus:outline-none focus:shadow-outline">
+        Sign up
+    </button>
 </div>
 <!-- Login card -->
 <div class="w-full flex justify-center items-center absolute right-0 left-0">
@@ -38,7 +42,7 @@
             </div>
             <div class="flex items-center justify-center">
                 <button type="submit"
-                    class="bg-[#e50914] hover:from-blue-700 hover:to-purple-700 text-white font-bold py-3 px-4 rounded focus:outline-none focus:shadow-outline w-full">
+                    class="bg-[#e50914] hover:from-blue-700 hover:to-purple-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">
                     LogIn
                 </button>
             </div>
@@ -46,8 +50,8 @@
                 <a href="#" class="text-gray-600 hover:underline">Forgot password?</a>
             </div>
         </form>
-        <p class="text-center text-gray-600 mt-6">Don't have an account? <a href="#"
-                class="text-blue-500 hover:underline">Sign up</a></p>
+        <p class="text-center text-gray-600 mt-6">Don't have an account? <a (click)="guestUser()"
+                class="text-blue-500 hover:underline">Guest user</a></p>
         <div class="mt-4">
             <p class="text-center text-gray-600">Or log in with:</p>
             <div class="flex justify-center mt-2">

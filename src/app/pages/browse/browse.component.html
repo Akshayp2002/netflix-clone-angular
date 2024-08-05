@@ -1,4 +1,7 @@
-<app-header [userImg]="userProfileImg" [userName]="name" />
+<div *ngIf="headerData$ | async as headerData">
+    <app-header [userImg]="headerData.userProfileImg" [userName]="headerData.name"></app-header>
+</div>
+
 <!-- component -->
 <app-banner [bannerTitle]="(bannerDetail$ | async)?.original_title" [bannerOverview]="(bannerDetail$ | async)?.overview"
     [language]="(bannerDetail$ | async)?.original_language" [vote]="(bannerDetail$ | async)?.vote_average"
@@ -6,10 +9,10 @@
 
 <app-movie-carousel [viewContents]="trending" [title]="'Trending Now'" />
 <app-movie-carousel [viewContents]="movies" [title]="'Now Playing'" />
-<app-movie-carousel [viewContents]="tvShows" [title]="'Popular Tv Show '" />
-<app-movie-carousel [viewContents]="upcoming" [title]="'Up Coming '" />
 <!-- large slider -->
 <app-preview-banner [viewContents]="trending" [title]="'Recommended'" />
-
+<!-- large slider -->
+<app-movie-carousel [viewContents]="tvShows" [title]="'Popular Tv Show '" />
+<app-movie-carousel [viewContents]="upcoming" [title]="'Up Coming '" />
 <app-movie-carousel [viewContents]="popular" [title]="'Popular '" />
 <app-movie-carousel [viewContents]="toprated" [title]="'Top Rated '" />

@@ -1,21 +1,24 @@
 <header class="h-[68px] z-10 bg-main sticky bg-black top-0 flex items-center justify-between">
     <div class="navbar bg-blackpx-10">
         <div class="flex-1">
+            <a [routerLink]="['/browse']">
             <img class="w-24 hidden md:block" src="assets/netflixlogo.png" alt="netflix-logo">
             <img class="w-12 md:hidden" src="assets/Netflix_Symbol_PMS.png" alt="netflix-logo">
+            </a>
             <div class="hidden md:block items-center content-center px-10">
                 <ul class="flex items-center gap-5">
                     @for (item of navList; track $index) {
-                    <li class="text-white cursor-pointer text-sm font-light">{{item}}</li>
+                    <li class="text-white cursor-pointer text-sm font-light" >{{item}}</li>
                     }
                 </ul>
             </div>
         </div>
         <div class="flex-none">
+            <p class="text-white text-lg font-bold mr-4"><span class="italic">Hey </span> {{userName}}</p>
             <div class="dropdown dropdown-end">
                 <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
                     <div class="w-10 rounded-full ring-1">
-                        <img alt="TProfile" [src]="userImg" (error)="onImageError($event)" />
+                        <img alt="Profile" [src]="userImg" (error)="onImageError($event)" />
                     </div>
                 </div>
                 <ul tabindex="0"
@@ -23,7 +26,6 @@
                     <li>
                         <a class="justify-between">
                             Profile
-
                         </a>
                     </li>
                     <li><a>Settings<span class="badge">New</span></a></li>

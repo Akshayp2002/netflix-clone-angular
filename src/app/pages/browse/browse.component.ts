@@ -8,6 +8,7 @@ import { MovieCarouselComponent } from "../../shared/components/movie-carousel/m
 import { forkJoin, map, Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { PreviewBannerComponent } from "../../shared/components/preview-banner/preview-banner.component";
+import { HeaderService } from '../../shared/services/header.service';
 
 @Component({
   selector: 'app-browse',
@@ -21,6 +22,10 @@ export class BrowseComponent implements OnInit {
   movieService = inject(MovieService)
   auth = inject(AuthService);
 
+  // to get header data
+  headerService = inject(HeaderService)
+  headerData$ = this.headerService.getHeaderData(); // Get header data
+  // validate api response
   movies: IVideoContent[] = [];
   tvShows: IVideoContent[] = [];
   popular: IVideoContent[] = [];
@@ -56,22 +61,12 @@ export class BrowseComponent implements OnInit {
           this.upcoming = res.upcoming.results as IVideoContent[],
           this.toprated = res.toprated.results as IVideoContent[]
       })
-  }
 
-  name = JSON.parse(sessionStorage.getItem("loggenInUser")!).name;
-  userProfileImg = JSON.parse(sessionStorage.getItem("loggenInUser")!).picture;
-  email = JSON.parse(sessionStorage.getItem("loggenInUser")!).email;
-
-  defaultImg = 'https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png';
-
-  onImageError(event: Event) {
-    const imgElement = event.target as HTMLImageElement;
-    imgElement.src = this.defaultImg;
   }
   getMovieKey() {
     this.movieService.getBannerVideo(this.movies[0].id)
       .subscribe(res => {
-        console.log(res, "banner");
+        console.log(res, "getMovieKey");
       })
   }
 

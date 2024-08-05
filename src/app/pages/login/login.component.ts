@@ -1,11 +1,11 @@
 declare var google: any;
 import { Component, inject, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [],
+  imports: [RouterOutlet,RouterLink, RouterLinkActive],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -30,6 +30,11 @@ export class LoginComponent implements OnInit {
 
   }
 
+  guestUser() {
+    console.log("tetetet");
+    this.router.navigate(['browse']);
+  }
+
   private decodeToken(token: string) {
     return JSON.parse(atob(token.split(".")[1]));
   }
@@ -38,6 +43,9 @@ export class LoginComponent implements OnInit {
       const payLoad = this.decodeToken(response.credential);
       sessionStorage.setItem("loggenInUser", JSON.stringify(payLoad));
       this.router.navigate(['browse']);
+    }else{
+      alert("Somthing went wrong!");
     }
   }
+
 }

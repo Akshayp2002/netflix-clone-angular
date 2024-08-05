@@ -1,0 +1,14 @@
+<div *ngIf="headerData$ | async as headerData">
+    <app-header [userImg]="headerData.userProfileImg" [userName]="headerData.name"></app-header>
+</div>
+
+
+<app-banner [bannerTitle]="(previewDetails$ | async)?.original_title || (previewDetails$ | async)?.original_name"
+    [bannerOverview]="(previewDetails$ | async)?.overview" [language]="(previewDetails$ | async)?.original_language"
+    [vote]="(previewDetails$ | async)?.vote_average" [releaseDate]="(previewDetails$ | async)?.release_date"
+    [key]="(bannerVideo$ | async)?.results[0].key" />
+
+
+<app-movie-carousel [viewContents]="trending" [title]="'Trending Now'" />
+<app-movie-carousel [viewContents]="movies" [title]="'Now Playing'" />
+<app-movie-carousel [viewContents]="tvShows" [title]="'Popular Tv Show '" />

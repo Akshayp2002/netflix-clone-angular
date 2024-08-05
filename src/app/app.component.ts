@@ -1,6 +1,6 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { environment } from '../environments/environment';
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -10,9 +10,4 @@ import { environment } from '../environments/environment';
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppComponent {
-  clientId = environment.clientId;
-
-  constructor() {
-    console.log('Client ID:', this.clientId);
-  }
 }

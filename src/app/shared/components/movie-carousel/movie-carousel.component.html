@@ -4,7 +4,7 @@
         <div #swiperContainer1 class="swiper-container">
             <div class="swiper-wrapper">
                 <ng-container *ngFor="let movie of viewContents">
-                    <div class="swiper-slide">
+                    <a class="swiper-slide" [routerLink]="['/preview',movie.id]" routerLinkActive="router-link-active" >
                         <div class="relative transform transition duration-500 hover:scale-110 px-5 rounded-lg">
                             <!-- Image -->
                             <img class="w-full h-auto rounded-lg" [src]="movie.poster_path | image" alt="">
@@ -19,7 +19,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </ng-container>
             </div>
         </div>

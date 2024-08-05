@@ -55,23 +55,6 @@
               ],
               "outputHashing": "all"
             },
-
-            "netlify": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.netlify.ts"
-                }
-              ]
-            },
-            "vercel": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.vercel.ts"
-                }
-              ]
-            },
             "development": {
               "optimization": false,
               "extractLicenses": false,

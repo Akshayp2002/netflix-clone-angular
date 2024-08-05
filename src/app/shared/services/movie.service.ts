@@ -17,6 +17,7 @@ const options = {
 @Injectable({
   providedIn: 'root'
 })
+
 export class MovieService {
   getbannerDetail(id: any): import("rxjs").Observable<any> {
     throw new Error('Method not implemented.');
