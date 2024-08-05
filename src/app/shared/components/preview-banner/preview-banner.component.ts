@@ -21,7 +21,7 @@ export class PreviewBannerComponent {
 
   // Common Swiper configuration
   private swiperConfig = {
-    slidesPerView: 3,
+    slidesPerView: 1,
     spaceBetween: 10, // Adjust spacing between slides if needed
     navigation: true, // Enable navigation arrows if desired
     pagination: {
@@ -30,7 +30,7 @@ export class PreviewBannerComponent {
     },
     breakpoints: {
       // Responsive settings for different screen sizes
-      640: {
+      340: {
         slidesPerView: 1,
         spaceBetween: 10,
       },

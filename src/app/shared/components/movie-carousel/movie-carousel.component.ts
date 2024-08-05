@@ -26,8 +26,8 @@ export class MovieCarouselComponent implements AfterViewInit {
     breakpoints: {
       320: { slidesPerView: 2 },
       480: { slidesPerView: 2 },
-      640: { slidesPerView: 5 },
-      768: { slidesPerView: 6 },
+      640: { slidesPerView: 4 },
+      768: { slidesPerView: 5 },
       1024: { slidesPerView: 8 },
     }
   };
