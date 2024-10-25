@@ -22,7 +22,7 @@ export class MovieCarouselComponent implements AfterViewInit {
   // Common Swiper configuration
   private swiperConfig = {
     speed: 500,
-    slidesPerView: 1,
+    slidesPerView: 6,
     breakpoints: {
       320: { slidesPerView: 2 },
       480: { slidesPerView: 2 },
